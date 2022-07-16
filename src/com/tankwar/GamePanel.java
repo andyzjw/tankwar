@@ -51,13 +51,13 @@ public class GamePanel extends JFrame {
         this.addKeyListener(new GamePanel.KeyMonitor());
 
         for (int i = 0; i < 14; i++) {
-            wallList.add(new Wall("image/7.png", 50 + i * 50, 170, this));
+            wallList.add(new Wall("image/7.gif", 50 + i * 50, 170, this));
         }
-        wallList.add(new Wall("image/7.png", 305, 560, this));
-        wallList.add(new Wall("image/7.png", 305, 500, this));
-        wallList.add(new Wall("image/7.png", 365, 500, this));
-        wallList.add(new Wall("image/7.png", 425, 500, this));
-        wallList.add(new Wall("image/7.png", 425, 560, this));
+        wallList.add(new Wall("image/7.gif", 305, 560, this));
+        wallList.add(new Wall("image/7.gif", 305, 500, this));
+        wallList.add(new Wall("image/7.gif", 365, 500, this));
+        wallList.add(new Wall("image/7.gif", 425, 500, this));
+        wallList.add(new Wall("image/7.gif", 425, 560, this));
         int emenyGoal = 10;
         baseList.add(base);
         while (true) {
