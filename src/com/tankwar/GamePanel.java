@@ -30,6 +30,7 @@ public class GamePanel extends JFrame {
     List<Tank> playerList = new ArrayList<>();
     List<Wall> wallList = new ArrayList<>();
     List<Base> baseList = new ArrayList<>();
+    List<Blast> blastList = new ArrayList<>();
     // 玩家1
     PlayerOne playerOne = new PlayerOne("image/1.png", 125, 510, this,
             "image/1.png", "image/4.png", "image/2.png", "image/3.png");
@@ -136,6 +137,9 @@ public class GamePanel extends JFrame {
                 base.paintSelft(graphics);
             });
 
+            blastList.forEach(blast -> {
+                blast.paintSelft(graphics);
+            });
             count++;
 
         } else if (state == 3) {

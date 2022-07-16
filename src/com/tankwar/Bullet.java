@@ -64,6 +64,7 @@ public class Bullet extends GameObject {
         List<Bot> bots = this.gamePanel.botList;
         for (Bot bot : bots) {
             if (this.getRectangle().intersects(bot.getRectangle())) {
+                this.gamePanel.blastList.add(new Blast("",bot.x-34,bot.y-14,this.gamePanel));
                 this.gamePanel.botList.remove(bot);
                 this.gamePanel.removeList.add(this);
                 break;

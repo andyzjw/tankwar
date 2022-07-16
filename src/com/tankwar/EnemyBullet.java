@@ -14,6 +14,7 @@ public class EnemyBullet extends Bullet {
         List<Tank> bots = this.gamePanel.playerList;
         for (Tank bot : bots) {
             if (this.getRectangle().intersects(bot.getRectangle())) {
+                this.gamePanel.blastList.add(new Blast("",bot.x-34,bot.y-14,this.gamePanel));
                 this.gamePanel.playerList.remove(bot);
                 this.gamePanel.removeList.add(this);
                 break;
