@@ -17,6 +17,7 @@ public class EnemyBullet extends Bullet {
                 this.gamePanel.blastList.add(new Blast("",bot.x-34,bot.y-14,this.gamePanel));
                 this.gamePanel.playerList.remove(bot);
                 this.gamePanel.removeList.add(this);
+                bot.alive = false;
                 break;
             }
         }

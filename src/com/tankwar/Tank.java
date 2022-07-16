@@ -19,6 +19,7 @@ public abstract class Tank extends GameObject {
     // 攻击冷却状态
     private boolean attackCollDown = true;
     private int attackCollDownTime = 1000;
+    public boolean alive = false;
 
 
     public Tank(String img, int x, int y, GamePanel gamePanel,
@@ -91,7 +92,7 @@ public abstract class Tank extends GameObject {
     }
 
     public void attack() {
-        if (attackCollDown) {
+        if (attackCollDown && alive) {
             Point p = this.getHeadPoint();
 
             Bullet bullet = new Bullet("image/5.png", p.x, p.y, this.gamePanel, this.direction);

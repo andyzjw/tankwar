@@ -35,6 +35,9 @@ public class GamePanel extends JFrame {
     PlayerOne playerOne = new PlayerOne("image/1.png", 125, 510, this,
             "image/1.png", "image/4.png", "image/2.png", "image/3.png");
 
+    PlayerTwo playerTwo = new PlayerTwo("image/playerTow/1.png", 625, 510, this,
+            "image/playerTow/1.png", "image/playerTow/4.png", "image/playerTow/2.png", "image/playerTow/3.png");
+
     Base base = new Base("image/8.png", 365, 560, this);
 
     public void launch() {
@@ -108,13 +111,10 @@ public class GamePanel extends JFrame {
 
             graphics.drawImage(select, 160, y, null);
         } else if (state == 1 || state == 2) {
-            graphics.drawString("游戏开始", 220, 100);
-            if (state == 1) {
-                graphics.drawString("单人模式", 220, 200);
+            graphics.setFont(new Font("仿宋", Font.BOLD, 30));
+            graphics.setColor(Color.WHITE);
+            graphics.drawString("剩余敌人:" + botList.size(), 0, 50);
 
-            } else {
-                graphics.drawString("双人模式", 220, 200);
-            }
             // 添加游戏元素
             playerList.forEach(playerOne -> {
                 playerOne.paintSelft(graphics);
@@ -171,6 +171,12 @@ public class GamePanel extends JFrame {
                 case KeyEvent.VK_ENTER:
                     state = a;
                     playerList.add(playerOne);
+                    playerOne.alive = true;
+
+                    if (state == 2) {
+                        playerList.add(playerTwo);
+                        playerTwo.alive = true;
+                    }
                     break;
                 case KeyEvent.VK_P:
                     if (state != 3) {
@@ -184,6 +190,7 @@ public class GamePanel extends JFrame {
                     }
                 default:
                     playerOne.keyPressed(e);
+                    playerTwo.keyPressed(e);
                     break;
             }
         }
@@ -192,6 +199,7 @@ public class GamePanel extends JFrame {
         public void keyReleased(KeyEvent e) {
 
             playerOne.keyReleased(e);
+            playerTwo.keyReleased(e);
         }
     }
 
